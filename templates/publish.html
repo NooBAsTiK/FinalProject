@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Публикация статьи</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Новая статья</h1>
+        <a href="{{ url_for('index') }}" class="back-button">Вернуться</a>
+        <form action="{{ url_for('publish') }}" method="post">
+            <label for="title">Заголовок:</label>
+            <input type="text" id="title" name="title" required>
+            <label for="content">Текст:</label>
+            <textarea name="content" id="content" rows="50" cols="100" required></textarea>
+            <button type="submit">Опубликовать</button>
+        </form>
+    </div>
+</body>
+</html>

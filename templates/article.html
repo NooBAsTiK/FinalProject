@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ article[1] }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <a href="{{ url_for('index') }}" class="back-button">Вернуться</a>
+        <h1>{{ article[1] }}</h1>
+        <p>{{ article[2] }}</p>
+        <a href="{{ url_for('index') }}" class="back-button">Вернуться</a>
+        <h2>Комментарии</h2>
+        <ul>
+            {% for comment in comments %}
+                <li><strong>{{ comment[1] }}</strong>: {{ comment[0] }}</li>
+            {% endfor %}
+        </ul>
+        <form action="{{ url_for('article', article_id=article[0]) }}" method="post">
+            <label>
+                <textarea name="content" rows="4" cols="50"></textarea>
+            </label>
+            <button type="submit">Добавить</button>
+        </form>
+    </div>
+</body>
+</html>
